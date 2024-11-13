@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Quest</title>
+    <link rel="stylesheet" href="fstyle.css">
+</head>
+<body>
+    <!--top area-->
+    <div class="box">
+        <h1>SIDEQUEST <input id="searchbar" type="text" placeholder="Search for a job type"> </h1>
+        <img id="dp" src="https://tse2.mm.bing.net/th?id=OIP.yYUwl3GDU07Q5J5ttyW9fQHaHa&pid=Api&P=0&h=220" alt="">
+    </div>
+
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="navigateTo('profile')">PROFILE</a></li>
+            <li><a href="#" onclick="navigateTo('workspace')">WORKSPACE</a></li>
+        </ul>
+    </nav>
+    </div>
+
+
+    <!--Cover area-->
+    <main id="profile" class="container">
+    <div class="cover_area">
+
+        <div class="cover_page">
+
+            <img id="prof_pic" src="https://tse2.mm.bing.net/th?id=OIP.yYUwl3GDU07Q5J5ttyW9fQHaHa&pid=Api&P=0&h=220"
+                alt="prof_pic.pg">
+            <br>
+            <div id="name">Rey Sinabiananan</div>
+
+        </div>
+        <br><br>
+        <!--Posting-->
+        <div style="display: flex;">
+            <div class="left_container" class="c2">
+
+                Types of jobs:
+                <br><br><br>
+                <div class="job_type" onclick="window.location.href='programming.html'">
+                    <img src="https://image.freepik.com/free-icon/code_318-41701.jpg" alt="code.icon">
+                    <a href="programming.html" style="text-decoration: none; color: inherit;">Programming</a>
+                </div>
+                <div class="job_type" onclick="window.location.href='GraphicDesign.html'">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.XrGVljajcLZhvJGUD-Sc7gHaE7&pid=Api&P=0&h=220"
+                        alt="code.icon">
+                    <a href="GraphicDesign.html" style="text-decoration: none; color: inherit;">Graphic Design</a>
+                </div>
+                <div class="job_type" onclick="window.location.href='Writing.html'">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.ajOZM5PCqcy_JyffZODgyQHaHa&pid=Api&P=0&h=220"
+                        alt="code.icon">
+                   <a href="Writing.html" style="text-decoration: none; color: inherit;"> Writing</a>
+                </div>
+                <div class="job_type" onclick="window.location.href='assignment.html'">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.ysDUOUMN8RoN80-L7-fOQQAAAA&pid=Api&P=0&h=220"
+                        alt="code.icon">
+                    <a href="assignment.html" style="text-decoration: none; color: inherit;">Assignments</a>
+                </div>
+
+            </div>
+            <!--post area-->
+            <div class="center_container" class="c2">
+
+                <div class="post_box">
+
+                    <textarea placeholder="Post a project."></textarea>
+                    <input id="post_button" type="submit" value="Post">
+
+                </div>
+
+                <div id="post_bar">
+
+                    <div>
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.yYUwl3GDU07Q5J5ttyW9fQHaHa&pid=Api&P=0&h=220"
+                            alt="prof_pic.pg">
+                    </div>
+                    <div id="post_content">
+                        <div id="post_name">Rey Sinabian</div>
+                        <br>
+                        I need help with a JavaScript code that can fetch weather data from an API and display it on a
+                        webpage.
+                        The code should take a city name as input and return the current weather details for that city.
+                        If anyone is available to work on this, please let me know.
+                    </div>
+
+                </div>
+
+                <div id="post_bar">
+
+                    <div>
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.yYUwl3GDU07Q5J5ttyW9fQHaHa&pid=Api&P=0&h=220"
+                            alt="prof_pic.pg">
+                    </div>
+                    <div id="post_content">
+                        <div id="post_name">Rey Sinabiananan</div>
+                        <br>
+                        I need assistance with an assignment on machine learning. The assignment includes analyzing a
+                        dataset,
+                        implementing various algorithms, and presenting the results. If someone is knowledgeable in ML
+                        and can assist,
+                        please contact me.
+                    </div>
+
+                </div>
+
+                <div id="post_bar">
+
+                    <div>
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.yYUwl3GDU07Q5J5ttyW9fQHaHa&pid=Api&P=0&h=220"
+                            alt="prof_pic.pg">
+                    </div>
+                    <div id="post_content">
+                        <div id="post_name">Rey Sinabian</div>
+                        <br>
+                        I'm looking for a creative designer to create a modern and professional logo for my startup.
+                        The company is called "TechNova" and specializes in tech gadgets. I would like a minimalist and
+                        futuristic design.
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+        <section id="workspace" class="container section" style="display: none;">
+            <h2>Workspace</h2>
+            <p>Your accepted jobs will appear here. Start working on them!</p>
+            <ul id="accepted-jobs-list">
+                <!-- Accepted jobs will be added here dynamically -->
+            </ul>
+        </section>
+
+        </div>
+</body>
+
+<script src="faculty.js"></script>
+
+</html>

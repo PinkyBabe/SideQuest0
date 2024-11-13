@@ -1,0 +1,266 @@
+
+
+/* Programming Page */
+.Pbody {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+.Ph1 {
+    font-size: 2.5em;
+    color: #ff6600;
+    text-align: center;
+    margin-bottom: 0.2em;
+}
+
+/* Paragraph Styling */
+.Pp {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
+
+/* List Styling */
+.Pul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+}
+
+.Pul li {
+    font-size: 1.1em;
+    padding: 0.5em 1em;
+    background-color: #fff;
+    margin: 0.3em 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.Pul li:hover {
+    background-color: #e1e7ef;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+/* List Item Icon */
+.Pul li::before {
+    content: "💻";
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #ff6600;
+}
+
+/* Graphic Design page */
+.Gbody {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header Styling */
+.Gh1 {
+    font-size: 2.5em;
+    color: #ff6600;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Paragraph Styling */
+.Gp {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
+
+/* List Styling */
+.Gul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.Gul li {
+    font-size: 1.1em;
+    padding: 0.8em 1em;
+    background-color: #fff;
+    margin: 0.5em 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.Gul li:hover {
+    background-color: #e9f1fb;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+/* List Item Icon */
+.Gul li::before {
+    content: "🎨";
+    font-size: 1.5em;
+    margin-right: 12px;
+    color: #ff6600;
+}
+
+/* Assignment page */
+.Abody {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header Styling */
+.Ah1 {
+    font-size: 2.5em;
+    color: #ff6600;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Paragraph Styling */
+.Ap {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 1em;
+}
+
+/* List Styling */
+.Aul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.Aul li {
+    font-size: 1.1em;
+    padding: 0.8em 1em;
+    background-color: #fff;
+    margin: 0.5em 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for list items */
+ul li:hover {
+    background-color: #e6f1fd;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+/* List Item Icon */
+ul li::before {
+    content: "📚";
+    font-size: 1.5em;
+    margin-right: 12px;
+    color: #2e76d1;
+}
+
+/* Writing page */
+.Wbody {
+    font-family: 'Arial', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header Styling */
+.Wh1 {
+    font-size: 2.5em;
+    color: #e13f29;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Paragraph Styling */
+.Wp {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 1em;
+}
+
+/* List Styling */
+.Wul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.Wul li {
+    font-size: 1.1em;
+    padding: 0.8em 1em;
+    background-color: #fff;
+    margin: 0.5em 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for list items */
+.Wul li:hover {
+    background-color: #ffede6;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+/* List Item Icon */
+.Wul li::before {
+    content: "✍️";
+    font-size: 1.5em;
+    margin-right: 12px;
+    color: #e13f29;
+}
