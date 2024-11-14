@@ -395,3 +395,92 @@ nav a:hover {
     margin-right: 10px;
 }
 
+@media (max-width: 768px) {
+    .box {
+        height: auto;
+        padding: 10px;
+    }
+
+    #searchbar {
+        width: 90%;
+        font-size: 14px;
+        margin: 5px auto;
+    }
+
+    .cover_area {
+        width: 95%;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    .left_container, .center_container {
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .job_type img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Mobile view (max-width 480px) */
+@media (max-width: 480px) {
+    .box {
+        padding: 5px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #searchbar {
+        font-size: 12px;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #dp {
+        height: 25px;
+    }
+
+    .cover_area, .left_container, .center_container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .job_type img {
+        width: 30px;
+        height: 30px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .menu_buttons {
+        width: 80px;
+    }
+
+    #post_button {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    #post_bar {
+        padding: 8px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #post_content {
+        font-size: 12px;
+    }
+}
+
