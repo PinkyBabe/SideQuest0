@@ -158,14 +158,6 @@ textarea{
     transform: scale(1.02);
 }
 
-.post_box{
-    background-color: rgb(255, 255, 255);
-    border: solid thin #aaa;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
 
 #post_bar {
     margin-top: 5px;
@@ -396,3 +388,83 @@ nav a:hover {
     margin-right: 10px;
 }
 
+
+.post_box {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#post_textarea,
+#expanded_textarea {
+    width: 100%;
+    height: 50px;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    resize: none;
+    margin-bottom: 1em;
+}
+
+#expanded_post {
+    margin-top: 1em;
+}
+
+.hidden {
+    display: none;
+}
+
+#back_button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+.form-group {
+    margin: 1em 0;
+}
+
+#job_description,
+#specify_job,
+#cash_amount {
+    width: 100%;
+    padding: 0.8em;
+    margin-top: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-btn {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #666;
+    color: #fff;
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

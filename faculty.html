@@ -46,11 +46,54 @@
             <div class="center_container" class="c2">
 
                 <div class="post_box">
-
-                    <textarea placeholder="Post a project."></textarea>
-                    <input id="post_button" type="submit" value="Post">
-
-                </div>
+                    <!-- Main Text Field for Post Description -->
+                    <textarea id="post_textarea" placeholder="Post a project." onclick="expandPostArea()"></textarea>
+                
+                    <!-- Expandable Content -->
+                    <div id="expanded_post" class="hidden">
+                        <!-- Text Field Remains Above -->
+                        <textarea id="expanded_textarea" placeholder="Describe your project here."></textarea>
+                
+                        <!-- Back Arrow -->
+                        <button id="back_button" onclick="collapsePostArea()">← Back</button>
+                
+                        <!-- Job Description -->
+                        <div class="form-group">
+                            <label for="job_description">What job do you want them to do?</label>
+                            <select id="job_description" onchange="toggleSpecifyField()">
+                                <option value="" disabled selected>Select job type</option>
+                                <option value="Office Work">Office Work</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Printing">Printing</option>
+                                <option value="Others">Others (Please Specify)</option>
+                            </select>
+                            <input type="text" id="specify_job" class="hidden" placeholder="Please specify the job">
+                        </div>
+                
+                        <!-- Reward Section -->
+                        <div class="form-group">
+                            <label>What will be the reward?</label>
+                            <div>
+                                <label>
+                                    <input type="checkbox" id="reward_cash" onclick="toggleCashField()"> Cash
+                                </label>
+                                <input type="text" id="cash_amount" class="hidden" placeholder="Enter amount">
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" id="reward_snack"> Snack
+                                </label>
+                            </div>
+                        </div>
+                
+                        <!-- Buttons -->
+                        <div class="button-group">
+                            <button id="post_project" class="post-btn" onclick="submitPost()">Post</button>
+                            <button id="cancel_project" class="cancel-btn" onclick="collapsePostArea()">Cancel</button>
+                        </div>
+                    </div>
+                </div>                
+                
 
                 <div id="post_bar">
 
@@ -124,5 +167,6 @@
 </body>
 
 <script src="faculty.js"></script>
+<script src="post.js"></script>
 
 </html>
