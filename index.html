@@ -3,37 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Log in </title>
+    <title>Log In & Sign Up</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .form-container {
+            background-color: #fffaf0;
+            width: 400px;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .form-container h2 {
+            color: #ff6600;
+            text-align: center;
+            margin-bottom: 1.5em;
+            font-size: 1.8em;
+        }
+
+        .toggle-link {
+            text-align: center;
+            margin-top: 1em;
+            color: #666;
+        }
+
+        .toggle-link a {
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-
     <div class="signup-container">
-        <h2>Log in</h2>
-        <form id="signupForm" onsubmit="redirectHome(event)">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-       
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-    
-            <button type="submit" class="signup-btn">Log in</button>
-            <div class="login-link">
-                Create an account? <a href="#" onclick="window.location.href='signup.html'">Create</a>
-            </div>
-        </form>
+        <div class="form-container">
+            <!-- Log In Form -->
+            <form id="loginForm" class="form-section">
+                <h2>Log In</h2>
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="signup-btn">Log In</button>
+                <div class="toggle-link">
+                    Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a>
+                </div>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signupForm" class="form-section hidden" onsubmit="handleSignUp(event)">
+                <h2>Sign Up</h2>
+                <div class="form-group">
+                    <label for="role">I am a:</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="Student">Student</option>
+                        <option value="Faculty">Faculty</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <button type="submit" class="signup-btn">Sign Up</button>
+                <div class="toggle-link">
+                    Already have an account? <a href="#" onclick="toggleForm()">Log In</a>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script>
-        function redirectHome(event) {
-            event.preventDefault(); // Prevent actual form submission
-            window.location.href = 'home.html'; // Redirect to home.html
+        function toggleForm() {
+            // Toggle between forms
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            loginForm.classList.toggle('hidden');
+            signupForm.classList.toggle('hidden');
+        }
+
+        function handleSignUp(event) {
+            event.preventDefault();
+            const role = document.getElementById('role').value;
+
+            if (!role) {
+                alert('Please select your role before signing up.');
+                return;
+            }
+
+            if (role === 'Student') {
+                window.location.href = 'home.html'; // Redirect to student homepage
+            } else if (role === 'Faculty') {
+                window.location.href = 'faculty.html'; // Redirect to faculty homepage
+            }
         }
     </script>
-
 </body>
 </html>
