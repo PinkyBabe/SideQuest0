@@ -4,103 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In & Sign Up</title>
-    <link rel="stylesheet" href="style.css">
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        }
+
         .form-container {
-            background-color: #fffaf0;
-            width: 400px;
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
             padding: 2em;
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .form-container h2 {
             color: #ff6600;
-            text-align: center;
             margin-bottom: 1.5em;
             font-size: 1.8em;
         }
 
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            transition: border-color 0.3s;
+            margin-top: 0.5em;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 0.8em;
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1.2em;
+        }
+
         .toggle-link {
-            text-align: center;
             margin-top: 1em;
             color: #666;
-        }
-
-        .toggle-link a {
-            color: #ff6600;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .toggle-link a:hover {
-            text-decoration: underline;
         }
 
         .hidden {
             display: none;
         }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .terms-policy {
+            margin-top: 1em;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .terms-policy a {
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .terms-policy a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 1.5em;
+                margin: 0 10px;
+            }
+
+            .form-container h2 {
+                font-size: 1.5em;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div class="signup-container">
-        <div class="form-container">
-            <!-- Log In Form -->
-            <form id="loginForm" class="form-section">
-                <h2>Log In</h2>
-                <div class="form-group">
-                    <label for="login-username">Username</label>
-                    <input type="text" id="login-username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="password" required>
-                </div>
-                <button type="submit" class="signup-btn">Log In</button>
-                <div class="toggle-link">
-                    Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a>
-                </div>
-            </form>
+    <div class="form-container">
+        <!-- Log In Form -->
+        <form id="loginForm" class="form-section" onsubmit="handleLogIn(event)">
+            <h2>Log In</h2>
+            <div class="form-group">
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required>
+            </div>
+            <div id="login-error" class="error-message hidden">Please fill in both Username and Password!</div>
+            <button type="submit" class="signup-btn">Log In</button>
+            <div class="toggle-link">
+                Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a>
+            </div>
+        </form>
 
-            <!-- Sign Up Form -->
-            <form id="signupForm" class="form-section hidden" onsubmit="handleSignUp(event)">
-                <h2>Sign Up</h2>
-                <div class="form-group">
-                    <label for="role">I am a:</label>
-                    <select id="role" name="role" required>
-                        <option value="" disabled selected>Select your role</option>
-                        <option value="Student">Student</option>
-                        <option value="Faculty">Faculty</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="signup-username">Username</label>
-                    <input type="text" id="signup-username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-                </div>
-                <button type="submit" class="signup-btn">Sign Up</button>
-                <div class="toggle-link">
-                    Already have an account? <a href="#" onclick="toggleForm()">Log In</a>
-                </div>
-            </form>
-        </div>
+        <!-- Sign Up Form -->
+        <form id="signupForm" class="form-section hidden" onsubmit="handleSignUp(event)">
+            <h2>Sign Up</h2>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Select your course</option>
+                    <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+                    <option value="Bachelor of Science in Education">Bachelor of Science in Education</option>
+                    <option value="Bachelor of Science in Business Administration">Bachelor of Science in Business Administration</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="year-level">Year Level</label>
+                <select id="year-level" name="year-level" required>
+                    <option value="" disabled selected>Select your year level</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="Student">Student</option>
+                    <option value="Faculty">Faculty</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div id="password-error" class="error-message hidden">Passwords do not match!</div>
+            <button type="submit" class="signup-btn">Sign Up</button>
+            <div class="toggle-link">
+                Already have an account? <a href="#" onclick="toggleForm()">Log In</a>
+            </div>
+
+            <!-- Terms and Policy Section -->
+            <div class="terms-policy">
+                By signing up, you agree to our <a href="#" onclick="alert('Terms and Policy for Northern Bukidnon State College Side Quest')">Terms and Policy</a>.
+                This platform connects part-time workers, job seekers, and employers in Manolo Fortich, providing a web-based space to complete digital tasks such as creating PowerPoint templates, fixing codes, and more.
+            </div>
+        </form>
     </div>
 
     <script>
         function toggleForm() {
-            // Toggle between forms
             const loginForm = document.getElementById('loginForm');
             const signupForm = document.getElementById('signupForm');
             loginForm.classList.toggle('hidden');
@@ -109,18 +200,46 @@
 
         function handleSignUp(event) {
             event.preventDefault();
+
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const passwordError = document.getElementById('password-error');
             const role = document.getElementById('role').value;
 
-            if (!role) {
-                alert('Please select your role before signing up.');
+            if (password !== confirmPassword) {
+                passwordError.classList.remove('hidden');
                 return;
             }
 
-            if (role === 'Student') {
-                window.location.href = 'home.html'; // Redirect to student homepage
-            } else if (role === 'Faculty') {
-                window.location.href = 'faculty.html'; // Redirect to faculty homepage
+            passwordError.classList.add('hidden');
+
+            // Redirect based on role
+            if (role === 'Faculty') {
+                alert('Sign Up Successful! Redirecting to Faculty page.');
+                window.location.href = 'faculty.html';
+            } else {
+                alert('Sign Up Successful!');
+                window.location.href = 'home.html';
             }
+        }
+
+        function handleLogIn(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('login-username').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+            const loginError = document.getElementById('login-error');
+
+            if (!username || !password) {
+                loginError.classList.remove('hidden');
+                return;
+            }
+
+            loginError.classList.add('hidden');
+
+            // Redirect or handle successful login
+            alert('Log In Successful!');
+            window.location.href = 'home.html';
         }
     </script>
 </body>
